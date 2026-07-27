@@ -125,10 +125,10 @@ void sync_object_forget_last_reliable_packet(u32 syncId) {
     so->lastReliablePacket.error = true;
 }
 
-// MurmurHash3 finalizer
 u16 sync_object_get_random_seed(u32 syncId) {
     u32 h = syncId ^ gNetworkAreaRandomSeed;
 
+    // MurmurHash3 finalizer
     h ^= h >> 16;
     h *= 0x85ebca6b;
     h ^= h >> 13;
